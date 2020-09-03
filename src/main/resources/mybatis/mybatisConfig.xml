@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+       <!-- 分页拦截器 -->
+      <plugins>
+		<plugin interceptor="com.marsmob.paging.interceptor.MybatisPageInterceptor">
+		     <property name="databaseType" value="MYSQL"/>  
+		     <property name="pageSqlId" value=".*Page$"/>
+		</plugin>
+	</plugins> 
+    
+    <!-- 指定映射文件 配置spring的配置文件中     这是由spring-mybatis来做的
+    <mappers>  
+        <mapper  resource="classpath:mapping/*.xml"/>       
+    </mappers> 
+   -->  
+
+</configuration>

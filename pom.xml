@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>springboot_mybatis</groupId>
+  <artifactId>springboot_mybatis</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springboot_mybatis</name>
+  <description>springboot_mybatis</description>
+ <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<!-- spring-boot 1.4.1.RELEASE 保证spring在4.3版本  同时支持Druid-->
+		<version>2.2.8.RELEASE</version> 
+	</parent>
+   
+	<dependencies>
+
+		<!-- spring-boot-web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<!-- 排除spring-boot默认的日志框架是Logback，因为我喜欢用log4j -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		 
+		 <!--spring  boot 自带log4j方式 -->
+			<dependency> 
+			   <groupId>org.springframework.boot</groupId>
+			   <artifactId>spring-boot-starter-log4j</artifactId>
+			   <version>1.2.8.RELEASE</version>
+			</dependency>
+		
+		
+		<!-- log4j 1.2.17  手动集成log4j方式
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.17</version>
+			</dependency>
+		 -->
+		 
+		<!-- 一些公用的依赖jar -->
+		
+		  <!--commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.3.1</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
+         <!-- commons-logging -->
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.1.2</version>
+		</dependency>
+		
+		<!-- fastjson 替换默认jackson 来做数据的json格式化-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.29</version>
+		</dependency>
+
+		<!-- mysql驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!--mybatis-spring-boot插件 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<!-- 使用druid数据连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.25</version>
+		</dependency>
+		
+		<!-- 使用thymeleaf代替jsp页面  springboot也是支持jsp的-->
+		 <dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+	    </dependency>
+	    
+	    <!-- redis -->
+	     <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-redis</artifactId>
+           <version>1.4.6.RELEASE</version>
+        </dependency>
+        
+        <!-- MQ  springboot默认支持RabbitMQ -->
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		
+		 <!-- SQLServer springboot
+		  <dependency>
+	        <groupId>com.microsoft.sqlserver</groupId>
+	        <artifactId>sqljdbc4</artifactId>
+	        <version>4.0</version>
+          </dependency>
+       -->
+       
+       <!--devtools热加载插件 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+			<scope>true</scope>
+		</dependency>
+		
+	</dependencies>
+	
+	
+	    <!-- 添加devtools热加载Maven插件 -->
+		 <build>
+				<plugins>
+				    <plugin>
+			            <groupId>org.springframework.boot</groupId>
+			            <artifactId>spring-boot-maven-plugin</artifactId>
+			            <configuration>
+			          		<!--fork :  如果没有该项配置，肯定devtools不会起作用，即应用不会restart -->
+			                <fork>true</fork>
+			            </configuration>
+			        </plugin>
+				</plugins>
+		</build>
+			
+	
+	
+	 <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <!--以下两项需要如果不配置，解析themleaft 会有问题 加上后允许元素不结束也可以 https://blog.csdn.net/swpu_ocean/article/details/79068187
+        <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.0.5</thymeleaf-layout-dialect.version>
+        -->
+    </properties>
+    
+</project>

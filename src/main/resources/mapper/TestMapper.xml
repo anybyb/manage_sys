@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE mapper 
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.marsmob.dao.ITestDao" >
+           
+     <insert  id="insertPrimary"  useGeneratedKeys="true" keyProperty="id" 
+               parameterType="com.marsmob.entity.Primarys" >
+               
+           insert into  primarys (id) VALUES (null)
+     </insert>      
+           
+     <insert id="insert"  parameterType="com.marsmob.entity.Test">
+        insert into test (id,name,note) values (next value for MYCATSEQ_GLOBAL,#{name},#{note})
+     </insert>
+     
+     <select  id="findObjById"   parameterType="java.lang.Integer" resultType="com.marsmob.entity.Test">
+          select id, name, note  from test where id = #{1}
+     </select> 
+     
+     <select  id="findObjByPage"   resultType="com.marsmob.entity.Test">
+          select id id, name name, note  note,create_time createTime  from test order by create_time desc
+     </select>
+     
+     <delete id="delete" parameterType="java.lang.Integer">
+        delete from test where id= #{1}
+     </delete>
+     
+   
+     
+     <select id="findTest"  resultType="java.lang.Integer">
+       select count(*) from test
+     </select>
+      
+     
+    </mapper>
+
