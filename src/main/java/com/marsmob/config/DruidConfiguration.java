@@ -23,6 +23,7 @@ public class DruidConfiguration {
 	 * 注册一个StatViewServlet
 	 * @return
 	 */
+	@SuppressWarnings({"rawtypes","unchecked"})
 	@Bean
 	public ServletRegistrationBean DruidStatViewServle2() {
 		// org.springframework.boot.context.embedded.ServletRegistrationBean提供类的进行注册.
@@ -49,6 +50,7 @@ public class DruidConfiguration {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings({"rawtypes","unchecked"})
 	@Bean
 	public FilterRegistrationBean druidStatFilter2() {
 
