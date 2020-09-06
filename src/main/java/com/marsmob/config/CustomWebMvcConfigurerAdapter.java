@@ -10,6 +10,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.basic.page.interceptor.FrontMvcInterceptor;
+import com.managesys.permissions.interceptor.AuthPermisInterceptor;
+
 
 /**
  * 配置拦截器
@@ -26,17 +29,10 @@ public class CustomWebMvcConfigurerAdapter implements WebMvcConfigurer {
 	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		
-		//registry.addInterceptor(new RequestIimitInterceptor()).addPathPatterns("/*"); // 对来自/test/**
-		
-		/**
-		//登录拦截器
-		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/test/**"); // 对来自/test/**
 		//权限拦截
-		 registry.addInterceptor(new AuthPermisInterceptor()).addPathPatterns("/test/**");
+		 registry.addInterceptor(new AuthPermisInterceptor()).addPathPatterns("/permision/**");
 		//分页拦截器
 		registry.addInterceptor(new FrontMvcInterceptor()).addPathPatterns("/test/**");
-		**/
 	}
 
 

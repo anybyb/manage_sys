@@ -5,7 +5,7 @@
 <configuration>
        <!-- 分页拦截器 -->
       <plugins>
-		<plugin interceptor="com.marsmob.paging.interceptor.MybatisPageInterceptor">
+		<plugin interceptor="com.basic.page.interceptor.MybatisPageInterceptor">
 		     <property name="databaseType" value="MYSQL"/>  
 		     <property name="pageSqlId" value=".*Page$"/>
 		</plugin>

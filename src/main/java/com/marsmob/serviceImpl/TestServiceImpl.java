@@ -4,17 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.marsmob.dao.ITestDao;
-import com.marsmob.entity.Primarys;
 import com.marsmob.entity.Test;
-import com.marsmob.redis.JedisClient;
-import com.marsmob.redis.RedisClientUtil;
 import com.marsmob.service.ITestService;
-import com.marsmob.util.Commons;
 
 @Service("testService")
 public class TestServiceImpl  implements ITestService {

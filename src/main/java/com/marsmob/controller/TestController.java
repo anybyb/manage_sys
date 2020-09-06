@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.marsmob.annotation.FlowLimit;
-import com.marsmob.annotation.Permissions;
 import com.marsmob.service.ITestService;
 
 @Controller
@@ -27,11 +26,7 @@ public class TestController {
 	@Resource
 	private  ITestService  testService;
 	
-
-	
-
-	@RequestMapping("/testPage.do")
-	@Permissions("/test/testPage.do")
+	@RequestMapping("/testPage")
 	public  List testPage(){
 		  logger.info("测试日志");
 		  return   testService.testPage();
@@ -39,7 +34,6 @@ public class TestController {
 	
 
 	@RequestMapping("/save.do")
-	@Permissions("/test/save.do")//自定义的权限注解 类似于shiro的使用方式
 	public  void save(){
 		for(int i =0;i<1000000;i++){
 			testService.save();
