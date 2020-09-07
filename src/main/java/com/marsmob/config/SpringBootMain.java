@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
  *
  */
 @SpringBootApplication
-@ComponentScan("com.**.controller,com.**.service*,com.marsmob.config,com.marsmob.redis")
+@ComponentScan("com.**.controller,com.**.service*,com.**.config,com.marsmob.redis")
 @MapperScan("com.**.dao")
 public class SpringBootMain {
   public static void main(String[] args) {
