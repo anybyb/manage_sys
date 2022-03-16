@@ -1,5 +1,5 @@
 # manage_sys
-管理系统 ：一个含有权限系统的简单开发框架
+管理系统 ：一个含有权限系统的简单开发框架</br>
 
 springboot+easyui+thymeleaf+通用权限 
 实现了Log4j做日志
